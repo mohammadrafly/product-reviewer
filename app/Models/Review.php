@@ -3,20 +3,18 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class User extends Authenticatable
+class Review extends Model
 {
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
+        'id_product',
         'name',
         'email',
-        'password',
-    ];
-
-    protected $hidden = [
-        'password',
+        'stars',
+        'review'
     ];
 }
