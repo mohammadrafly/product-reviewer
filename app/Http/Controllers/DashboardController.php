@@ -10,13 +10,15 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    public function index()
+    public function index(Product $product, Review $review, User $user, )
     {
         $title = 'Dashboard';
-        $product = Product::count();
-        $review = Review::count();
-        $user = User::count();
-        return view('dashboard.index', compact('title', 'product', 'review', 'user'));
+        $data = [
+            'product' => $product->count(),
+            'review' => $review->count(),
+            'user' => $user->count(),
+        ];
+        return view('dashboard.index', compact('title', 'data'));
     }
 
     public function Logout(Request $request)
@@ -30,5 +32,4 @@ class DashboardController extends Controller
             ], 200);
         }
     }
-
 }
