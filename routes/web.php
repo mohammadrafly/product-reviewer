@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LandingController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 
@@ -21,7 +22,12 @@ use App\Http\Controllers\UserController;
 
 Route::middleware(['guest'])->group(function () { 
     Route::controller(AuthController::class)->group(function () {
-        Route::match(['GET', 'POST'], '/', 'index')->name('login');
+        Route::match(['GET', 'POST'], '/login', 'index')->name('login');
+    });
+    Route::controller(LandingController::class)->group(function () {
+        Route::match(['GET'], '/', 'index')->name('landing.page');
+        Route::match(['GET'], '/product/{id}', 'singleProduct')->name('single.product');
+        Route::match(['POST'], '/product/review/{id}', 'review')->name('review.product');
     });
 });
 

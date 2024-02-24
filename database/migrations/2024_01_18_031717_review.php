@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('stars');
-            $table->string('review');
+            $table->text('review');
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

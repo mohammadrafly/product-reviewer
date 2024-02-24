@@ -3,7 +3,7 @@ async function Login() {
         var formData = $('#loginForm').serialize();
 
         const response = await $.ajax({
-            url: BASE_URL,
+            url: BASE_URL + 'login',
             type: 'POST',
             data: formData,
             dataType: 'json'
