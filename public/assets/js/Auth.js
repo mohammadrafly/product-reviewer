@@ -10,7 +10,7 @@ async function Login() {
         });
 
         if (response.success) {
-            window.location.href = BASE_URL + response.redirect;
+            window.location.href = response.redirect;
         } else {
             throw response.message;
         }
