@@ -7,6 +7,7 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SurveyController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -57,10 +58,8 @@ Route::middleware(['auth'])->group(function () {
             Route::match(['GET', 'POST'], '/review/update/{id}', 'update')->name('review.update');
             Route::match(['GET'], '/review/delete/{id}', 'delete')->name('review.delete');
         });
-        Route::controller(ReviewController::class)->group(function () {
-            Route::match(['GET', 'POST'], '/review', 'index')->name('review');
-            Route::match(['GET', 'POST'], '/review/update/{id}', 'update')->name('review.update');
-            Route::match(['GET'], '/review/delete/{id}', 'delete')->name('review.delete');
+        Route::controller(SurveyController::class)->group(function () {
+            Route::match(['GET', 'POST'], '/survey', 'index')->name('survey');
         });
     });
 });
