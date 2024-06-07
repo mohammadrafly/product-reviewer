@@ -17,7 +17,7 @@
     @else
         <div class="md:min-h-screen bg-gray-200">
             @include('layout.partials.sidebar')
-        
+
             <div class="pl-[250px]">
                 <div class="p-10 h-min-screen">
                     @yield('content')

@@ -20,19 +20,20 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::middleware(['guest'])->group(function () { 
+Route::middleware(['guest'])->group(function () {
     Route::controller(AuthController::class)->group(function () {
         Route::match(['GET', 'POST'], '/login', 'index')->name('login');
     });
     Route::controller(LandingController::class)->group(function () {
         Route::match(['GET'], '/', 'index')->name('landing.page');
+        Route::match(['GET', 'POST'], '/survey', 'survey')->name('survey');
         Route::match(['GET'], '/product/{id}', 'singleProduct')->name('single.product');
         Route::match(['POST'], '/product/review/{id}', 'review')->name('review.product');
     });
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::prefix('dashboard')->group(function () { 
+    Route::prefix('dashboard')->group(function () {
         Route::controller(ProfileController::class)->group(function () {
             Route::match(['GET', 'POST'], '/profile', 'index')->name('profile');
             Route::match(['GET', 'POST'], '/profile/change/password', 'changePassword')->name('password.change');

@@ -45,7 +45,7 @@
     <h1 class="text-3xl font-bold">Product</h1>
 </div>
 
-<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-5">
     @foreach ($data['product'] as $product)
         <a href="{{ route('single.product', $product->id)}}">
             <img class="h-250 w-250 rounded-lg transform transition-transform hover:scale-105" src="{{ asset('product_pictures/'.$product->product_picture)}}" alt="">
