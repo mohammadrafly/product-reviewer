@@ -6,7 +6,7 @@
 
 <div class="w-full h-screen bg-white p-5 mt-5 rounded-md">
     <div class="relative overflow-x-auto rounded-md">
-        <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+        <table id="table" class="w-full text-sm text-left rtl:text-right text-gray-500">
             <thead class="text-xs text-white uppercase bg-gray-500">
                 <tr>
                     <th scope="col" class="px-6 py-3">
@@ -35,6 +35,9 @@
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Judgement
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Tanggal
                     </th>
                 </tr>
             </thead>
@@ -68,11 +71,24 @@
                     <td class="px-6 py-4">
                         {{ $row->judgement }}
                     </td>
+                    <td class="px-6 py-4">
+                        {{ $row->created_at }}
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
 </div>
+
+@endsection
+
+@section('script')
+
+<script>
+    $(document).ready( function () {
+        $('#table').DataTable();
+    });
+</script>
 
 @endsection
